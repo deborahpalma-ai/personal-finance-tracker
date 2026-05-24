@@ -9,9 +9,9 @@ load_dotenv()
 # =========================================
 # SUPABASE CONFIG
 # =========================================
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
+SUPABASE_URL = st.secrets.get("SUPABASE_URL") or os.getenv("SUPABASE_URL")
+SUPABASE_KEY = st.secrets.get("SUPABASE_KEY") or os.getenv("SUPABASE_KEY")
+SUPABASE_SERVICE_KEY = st.secrets.get("SUPABASE_SERVICE_KEY") or os.getenv("SUPABASE_SERVICE_KEY")
 
 # Auth client (anon key) — used for login/signup
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
